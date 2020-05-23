@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-const Light = ({ light }) => {
-    return <div>{light}</div>
+const Light = ({ light, dispatch }) => {
+    return (
+        <div>
+            <p>{light}</p>
+            <button
+                onClick={() => dispatch({ type: 'SWITCH' })}
+            >
+                switch
+            </button>
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({
@@ -10,5 +19,4 @@ const mapStateToProps = state => ({
 });
 
 const LightContainer = connect(mapStateToProps)(Light);
-
 export default LightContainer;
