@@ -7,7 +7,10 @@ import lightReducer from './reducers/lightReducer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-const store = createStore(lightReducer);
+const store = createStore(
+  lightReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
