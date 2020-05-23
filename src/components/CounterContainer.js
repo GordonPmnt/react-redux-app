@@ -1,22 +1,22 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-const Light = ({ light, dispatch }) => {
+const Counter = ({ counter, dispatch }) => {
     return (
         <div>
-            <p>{light}</p>
-            <button
-                onClick={() => dispatch({ type: 'SWITCH' })}
-            >
-                switch
-            </button>
+            <p>{counter}</p>
+            <button onClick={() => dispatch({ type: 'REMOVE_TEN' })}> -10 </button>
+            <button onClick={() => dispatch({ type: 'REMOVE' })}> -1 </button>
+            <button onClick={() => dispatch({ type: 'RESET' })}> RESET </button>
+            <button onClick={() => dispatch({ type: 'ADD' })}> +1 </button>
+            <button onClick={() => dispatch({ type: 'ADD_TEN' })}> +10 </button>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    light: state
+    counter: state
 });
 
-const LightContainer = connect(mapStateToProps)(Light);
-export default LightContainer;
+const CounterContainer = connect(mapStateToProps)(Counter);
+export default CounterContainer;
